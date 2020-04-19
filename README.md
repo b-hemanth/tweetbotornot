@@ -1,4 +1,10 @@
 
+# Changes I made
+
+Fix for this issue: https://github.com/mkearney/tweetbotornot/issues/23
+
+The original package doesn't have support to use `retryonratelimit` like `rtweet` does, but, if the fast parameter is true, the rate limit should be evaded. However, Mike Kearney's version still looks up a users 100 last tweets even if not using them when using `fast`. I edit this.
+
 # tweetbotornot <img width="160px" src="man/figures/logo.png" align="right" />
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
@@ -7,7 +13,7 @@ status](https://travis-ci.org/mkearney/tweetbotornot.svg?branch=master)](https:/
 [![Coverage
 status](https://codecov.io/gh/mkearney/tweetbotornot/branch/master/graph/badge.svg)](https://codecov.io/github/mkearney/tweetbotornot?branch=master)
 
-An R package for classifying Twitter accounts as `bot or not`.
+An R package for classifying Twitter accounts as `bot or not`. 
 
 ## Features
 
