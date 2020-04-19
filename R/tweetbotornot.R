@@ -85,13 +85,21 @@ botornot.factor <- function(x, fast = FALSE) {
   botornot(x, fast = fast)
 }
 
-#' @export
+# Edited here as discussed https://github.com/mkearney/tweetbotornot/issues/23
 botornot.character <- function(x, fast = FALSE) {
-  ## remove NA and duplicates
+  # Drop NA and duplicates
   x <- x[!is.na(x) & !duplicated(x)]
-  ## get most recent 100 tweets
-  x <- rtweet::get_timelines(x, n = 100)
-  ## pass to next method
+  # If fast, fast method
+  if (fast)
+  {
+    x <- rtweet::lookup_users(x)
+  }
+  # If not fast, get last 100 tweets
+  else
+  {
+    x <- rtweet::get_timelines(x, n = 100)
+  }
+  # check if bot
   botornot(x, fast = fast)
 }
 
